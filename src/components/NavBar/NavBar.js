@@ -1,15 +1,16 @@
 import './css/Navbar.css'; 
 import CartWidget from "../CartWidget/CartWidget";
-import logo from './assets/logo.png'
+import logo from './assets/logo.png'    
+import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <Link to='/' class="navbar-brand" href="#">
                 <img src={logo} alt='logo' />
                 Quema María
-                </a>
+                </Link>
                 <button
                 class="navbar-toggler"
                 type="button"
@@ -23,21 +24,23 @@ const NavBar = () => {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <NavLink to={`/category/Blunts`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option' } class="nav-link" href="">
                         Blunts
-                    </a>
+                    </NavLink>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <NavLink to={`/category/Sabanas`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option' } class="nav-link" href="">
                         Sabanas
-                    </a>
+                    </NavLink>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="">
-                        Accesorios
-                    </a>
+                    <NavLink to={`/category/Otros`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option' } class="nav-link" href="">
+                        Otros
+                    </NavLink>
                     </li>
+
                 </ul>
 
                 <CartWidget />
